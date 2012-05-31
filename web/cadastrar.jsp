@@ -64,22 +64,22 @@
                     
                     <input type="hidden" name="ID" id="cod"/>
                     <input type="hidden" name="acao" value="atualizar"/>
-                    <li class="txt_geral">
-                        <ul>Data: <input type="text" name="DataCompromisso" id="data" class="txt_dados"/></ul>
-                        <ul>Inicio: <input type="text" name="HoraInicio" id="start" class="txt_dados"/></ul>
-                        <ul>Fim: <input type="text" name="HoraFim" id="end" class="txt_dados"/></ul>
-                        <ul>Tipo: <select name="Tipo" id="tipo" class="txt_dados">
+                    <ul class="lista_cadastro">
+                        <li>Data: <input type="text" name="DataCompromisso" id="data" class="txt_dados"/></li>
+                        <li>Inicio: <input type="text" name="HoraInicio" id="start" class="txt_dados"/></li>
+                        <li>Fim: <input type="text" name="HoraFim" id="end" class="txt_dados"/></li>
+                        <li>Tipo: <select name="Tipo" id="tipo" class="txt_dados">
                                 <option value="1">Visita técnica</option>
                                 <option value="2">Visita de manutenção</option>
                                 <option value="3">Visita de projeto</option>
-                            </select></ul>
-                        <ul>Assunto: <input type="text" name="Assunto" id="assunto" class="txt_dados"/></ul>
-                        <ul>Descrição: <textarea name="Observacao" id="obs" class="txt_dados" cols="40" rows="4"></textarea></ul>
+                            </select></li>
+                        <li>Assunto: <input type="text" name="Assunto" id="assunto" class="txt_dados"/></li>
+                        <li>Descrição: <textarea name="Observacao" id="obs" class="txt_dados" cols="40" rows="4"></textarea></li>
 
-                        <ul><input type="submit" value="Gravar" name="btGravar" onclick="obrigado();" class="button"/>
+                        <li><input type="submit" value="Gravar" name="btGravar" onclick="obrigado();" class="button"/>
                             <input type="button" value="Cancelar" name="btVoltar" onclick="window.location='calendar.jsp'" class="button"/>
-                            <input type="button" value="Excluir" id="btExcluir" class="button"/></ul>
-                    </li>
+                            <input type="button" value="Excluir" id="btExcluir" class="button"/></li>
+                    </ul>
                 </form>                
             </div>
             <div id="rodape">

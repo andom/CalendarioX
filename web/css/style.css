@@ -73,6 +73,14 @@ html, body {
 	font-style: italic;
 }
 
+.lista_cadastro {
+	font-family: Calibri;
+	color:#ffffff;
+	font-size: small;
+        margin: 5px;
+        list-style: none;
+}
+
 .txt_geral {
 	font-family: Calibri;
 	color:#ffffff;
