@@ -127,21 +127,26 @@ $('#date-pick')
 var updateSelects = function (selectedDate)
 {
 	var selectedDate = new Date(selectedDate);
+		var data=selectedDate.getDate() + "/"+(selectedDate.getMonth()+1)+"/"+selectedDate.getFullYear();
+	$('#data').val(data)
+	/*
 	$('#d option[value=' + selectedDate.getDate() + ']').attr('selected', 'selected');
 	$('#m option[value=' + (selectedDate.getMonth()+1) + ']').attr('selected', 'selected');
-	$('#y option[value=' + (selectedDate.getFullYear()) + ']').attr('selected', 'selected');
+	$('#y option[value=' + (selectedDate.getFullYear()) + ']').attr('selected', 'selected');*/
 }
 // listen for when the selects are changed and update the picker
-$('#d, #m, #y')
+$('#data')
 	.bind(
 		'change',
 		function()
 		{
+			data=$(this).val().split("/")
 			var d = new Date(
-						$('#y').val(),
-						$('#m').val()-1,
-						$('#d').val()
+						data[0],
+						data[1],
+						data[2]
 					);
+					
 			$('#date-pick').dpSetSelected(d.asString());
 		}
 	);
@@ -151,18 +156,19 @@ var today = new Date();
 updateSelects(today.getTime());
 
 // and update the datePicker to reflect it...
-$('#d').trigger('change');
+$('#data').trigger('change');
 });
 </script>
 
-<!-- MUST BE THE LAST SCRIPT IN <HEAD></HEAD></HEAD> png fix -->
-<script src="js/jquery/jquery.pngFix.pack.js" type="text/javascript"></script>
-<script type="text/javascript">
-$(document).ready(function(){
-$(document).pngFix( );
-});
-</script>
-        <script src="script.js" type="text/javascript"></script>   
+
+        <script src="script.js" type="text/javascript"></script>
+		<!-- MUST BE THE LAST SCRIPT IN <HEAD></HEAD></HEAD> png fix -->
+		<script src="js/jquery/jquery.pngFix.pack.js" type="text/javascript"></script>
+		<script type="text/javascript">
+		$(document).ready(function(){
+		$(document).pngFix( );
+		});
+		</script>
     </head>
     
 <body>
@@ -230,7 +236,7 @@ $(document).pngFix( );
 		<tr>
 			<th valign="top">Data:</th>
 			<td><input type="text" class="inp-form" name="DataCompromisso" id="data" /></td>
-			<td></td>
+			<td><a href=""  id="date-pick"><img src="images/forms/icon_calendar.jpg"   alt="" /></a></td>
 		</tr>
 		<tr>
 			<th valign="top">Hora Início:</th>
