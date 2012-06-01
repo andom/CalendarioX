@@ -1,0 +1,92 @@
+html, body {
+	width: 100%;
+	height: 100%;
+	margin: 0px;
+	padding: 0px;
+        overflow: hidden;       
+}
+
+#principal {
+	width: 100%;
+	height: 100%;
+	display: table;
+	background: #274690;
+	font-family: Verdana, Geneva, sans-serif;
+}
+
+#principal2 {
+	vertical-align: middle;
+	display: table-cell;
+	_position: absolute;
+	_top: 50%;
+}
+
+#conteudo {
+	width: 930px;
+	height: 700px;	
+	margin: auto;
+	padding: 20px;
+	border: 1px solid #274690;
+	background-image:url(../image/back.jpg);
+	background-repeat:no-repeat;
+	background-position:center;
+	_position: relative;
+	_top: -50%;
+}
+
+#logo {
+	width: 72%;
+	height: 15%;
+	position: relative;
+	float: left;
+}
+
+#dados {
+	width: 28%;
+	height: 15%;
+	position: relative;
+	float: left;
+}
+
+#informacoes {
+	width: 100%;
+	height: 75%;
+	position: relative;
+	float: left;
+	text-align: center;
+}
+
+#rodape {
+	width: 100%;
+	height: 10%;
+	position: relative;
+	float: left;
+	vertical-align:middle;
+	text-align: center;
+}
+
+.txt_geral_destaque {
+	font-family: Calibri;
+	color:#ffffff;
+	font-size: large;
+	font-weight: bold;
+	font-style: italic;
+}
+
+.txt_geral {
+	font-family: Calibri;
+	color:#ffffff;
+	font-size: small;
+}
+
+.txt_dados {
+	font-family: Calibri;
+	color:#000;
+	font-size: small;
+}
+
+.button {
+	font-family: Calibri;
+	color:#000;
+	font-size: medium;
+}
