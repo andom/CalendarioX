@@ -2,39 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN""http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
 <head>
-<style type='text/css'>
-
-	body {
-		font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
-		margin: 0;
-	}
-	
-	h1 {
-		margin: 0;
-		padding: 0.5em;
-	}
-	
-	p.description {
-		font-size: 0.8em;
-		padding: 1em;
-		position: absolute;
-		top: 3.2em;
-		margin-right: 400px;
-	} 
-	
-	#message {
-		font-size: 0.7em;
-		position: absolute;
-		top: 1em; 
-		right: 1em;
-		width: 350px;
-		display: none;
-		padding: 1em;
-		background: #ffc;
-		border: 1px solid #dda;
-	}
-	
-</style>
+<link rel='stylesheet' type='text/css' href='css/style.css' />
 <link rel='stylesheet' type='text/css' href='jquery-ui.css' />
 <link rel='stylesheet' type='text/css' href='jquery.weekcalendar.css' />
 
@@ -102,7 +70,26 @@
 </script>
 </head>
 <body>
-    <p class="description"></p>
+  <!-- Start: page-top-outer -->
+<div id="page-top-outer">    
+
+<!-- Start: page-top -->
+<div id="page-top">
+
+	<!-- start logo -->
+	<div id="logo">
+	<a href=""><img src="images/logo.png" width="142" height="50" alt="" /></a>
+	
+	</div>
+	<!-- end logo -->
+ 	<div class="clear"></div>
+
+	<div class="navCalendar"></div>
+</div>
+<!-- End: page-top -->
+
+</div>
+<!-- End: page-top-outer -->
     <div id='calendar'></div>
 </body>
 </html>

@@ -277,24 +277,24 @@
 
          if (options.buttons) {
             calendarNavHtml = "<div class=\"wc-nav\">\
-                    <button class=\"wc-today\">" + options.buttonText.today + "</button>\
-                    <button class=\"wc-prev\">" + options.buttonText.lastWeek + "</button>\
-                    <button class=\"wc-next\">" + options.buttonText.nextWeek + "</button>\
+                    <button class=\"wc-today button\">" + options.buttonText.today + "</button>\
+                    <button class=\"wc-prev button\">" + options.buttonText.lastWeek + "</button>\
+                    <button class=\"wc-next button\">" + options.buttonText.nextWeek + "</button>\
                     </div>";
 
-            $(calendarNavHtml).appendTo($calendarContainer);
+            $(calendarNavHtml).appendTo('.navCalendar');
 
-            $calendarContainer.find(".wc-nav .wc-today").click(function() {
+            $('.navCalendar').find(".wc-nav .wc-today").live('click',function() {
                self.element.weekCalendar("today");
                return false;
             });
 
-            $calendarContainer.find(".wc-nav .wc-prev").click(function() {
+            $('.navCalendar').find(".wc-nav .wc-prev").live('click',function() {
                self.element.weekCalendar("prevWeek");
                return false;
             });
 
-            $calendarContainer.find(".wc-nav .wc-next").click(function() {
+            $('.navCalendar').find(".wc-nav .wc-next").live('click',function() {
                self.element.weekCalendar("nextWeek");
                return false;
             });
