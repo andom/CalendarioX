@@ -25,7 +25,7 @@
 }
 
 .wc-header {
-	background: #eee;
+	background: url(images/table_header_repeat_01.jpg) repeat-x;
 	border-top: 1px solid #aaa;
 	border-bottom: 1px solid #aaa;
 	width: 100%;
@@ -44,7 +44,8 @@
 	padding: 0.4em;
 }
 .wc-header td {
-	background-color: #eee;	
+	background: url(images/table_header_repeat_04.jpg) repeat-x;
+	color:#fff;
 }
 
 .wc-grid-timeslot-header {
