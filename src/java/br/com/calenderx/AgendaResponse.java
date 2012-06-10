@@ -52,7 +52,7 @@ public class AgendaResponse extends HttpServlet {
                 Integer intID = Integer.parseInt(request.getParameter("id"));
                 dao.deletar(intID); //deletar
                 
-                out.println("<script> alert('Compromisso deletado!'); window.location='calendar.jsp';</script>");
+                out.println("<script> alert('Compromisso deletado!'); window.location='index.jsp';</script>");
             }
             else{ 
 
@@ -76,7 +76,7 @@ public class AgendaResponse extends HttpServlet {
                     dao.atualizar(objAgenda);
                 }
                 
-                out.println("<script> alert('Informações atualizadas!'); window.location='calendar.jsp';</script>");
+                out.println("<script> alert('Informações atualizadas!'); window.location='index.jsp';</script>");
             }            
 
             

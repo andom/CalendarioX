@@ -127,6 +127,7 @@ $('#date-pick')
 var updateSelects = function (selectedDate)
 {
 	var selectedDate = new Date(selectedDate);
+	var oldDate=$('#data').val()
         if (selectedDate!='Invalid Date'){
             var d = selectedDate.getDate();
             var M = selectedDate.getMonth()+1;
@@ -136,6 +137,9 @@ var updateSelects = function (selectedDate)
             //var data=selectedDate.getDate() + "/"+(selectedDate.getMonth()+1)+"/"+selectedDate.getFullYear();
             $('#data').val(data)
         }
+		else{
+		    $('#data').val(oldDate)
+		}
 	/*
 	$('#d option[value=' + selectedDate.getDate() + ']').attr('selected', 'selected');
 	$('#m option[value=' + (selectedDate.getMonth()+1) + ']').attr('selected', 'selected');
@@ -156,7 +160,10 @@ $('#data')
 					
 			$('#date-pick').dpSetSelected(d.asString());
 		}
-	);
+	).focus(function(){
+		$('#date-pick').trigger('click')
+	
+	});
 
 // default the position of the selects to today
 var today = new Date();
@@ -302,8 +309,8 @@ $('#data').trigger('change');
 		<td valign="top">
 		
 			<input type="submit" value="Gravar" name="btGravar" onclick="obrigado();" class="form-submit"/>
-            <input type="button" value="Cancelar" name="btVoltar" onclick="window.location='calendar.jsp'" class="form-reset"/>
-            <input type="button" value="Excluir" id="btExcluir" class="form-reset"/>
+            <input type="button" value="Cancelar" name="btVoltar" onclick="window.location='index.jsp'" class="form-submit"/>
+            <input type="button" value="Excluir" id="btExcluir" class="form-submit"/>
 							
 		</td>
 		<td></td>
