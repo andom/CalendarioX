@@ -127,8 +127,15 @@ $('#date-pick')
 var updateSelects = function (selectedDate)
 {
 	var selectedDate = new Date(selectedDate);
-		var data=selectedDate.getDate() + "/"+(selectedDate.getMonth()+1)+"/"+selectedDate.getFullYear();
-	$('#data').val(data)
+        if (selectedDate!='Invalid Date'){
+            var d = selectedDate.getDate();
+            var M = selectedDate.getMonth()+1;
+            var y = selectedDate.getFullYear();
+            
+            var data = (d<=9?'0'+d:d) + "/"+ (M<=9?'0'+M:M) +"/"+ y;
+            //var data=selectedDate.getDate() + "/"+(selectedDate.getMonth()+1)+"/"+selectedDate.getFullYear();
+            $('#data').val(data)
+        }
 	/*
 	$('#d option[value=' + selectedDate.getDate() + ']').attr('selected', 'selected');
 	$('#m option[value=' + (selectedDate.getMonth()+1) + ']').attr('selected', 'selected');
@@ -235,8 +242,25 @@ $('#data').trigger('change');
 		<table border="0" cellpadding="0" cellspacing="0"  id="id-form">
 		<tr>
 			<th valign="top">Data:</th>
-			<td><input type="text" class="inp-form" name="DataCompromisso" id="data" /></td>
-			<td><a href=""  id="date-pick"><img src="images/forms/icon_calendar.jpg"   alt="" /></a></td>
+			<td class="noheight">
+					<table border="0" cellpadding="0" cellspacing="0">
+						<tr  valign="top">
+							<td>
+                                                            <input type="text" readonly="true" class="inp-form" name="DataCompromisso" id="data" />
+							
+							</td>
+							
+							
+							<td>
+								&nbsp;
+								<a href=""  id="date-pick"><img src="images/forms/icon_calendar.jpg"   alt="" /></a>
+							</td>
+						</tr>
+					</table>
+				
+				
+			</td>
+			<td>&nbsp;</td>
 		</tr>
 		<tr>
 			<th valign="top">Hora Início:</th>
