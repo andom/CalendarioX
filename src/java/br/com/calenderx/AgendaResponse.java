@@ -51,8 +51,7 @@ public class AgendaResponse extends HttpServlet {
             if (request.getParameter("acao").equals("deletar")){
                 Integer intID = Integer.parseInt(request.getParameter("id"));
                 dao.deletar(intID); //deletar
-                
-                out.println("<script> alert('Compromisso deletado!'); window.location='index.jsp';</script>");
+                  out.println("{\"msg\":\"Compromisso deletado!\",\"status\":0}");
             }
             else{ 
 
@@ -76,16 +75,17 @@ public class AgendaResponse extends HttpServlet {
                     dao.atualizar(objAgenda);
                 }
                 
-                out.println("<script> alert('Informações atualizadas!'); window.location='index.jsp';</script>");
+                out.println("{\"msg\":\"Informações atualizadas!\",\"status\":0}");//Status =0 - Sucesso
+                
             }            
 
             
         } 
         catch(SQLException e){
-            out.println("<script> alert(" + e.getMessage() + ");</script>");
+            out.println("{\"msg\":\" "+e.getMessage()+"\",\"status\":1}");//Status =1 - Erro
         }
         catch(Exception e){
-            out.println("<script> alert(" + e.getMessage() + ");</script>");
+            out.println("{\"msg\":\" "+e.getMessage()+"\",\"status\":1}");//Status =1 - Erro
         }
         finally {            
             out.close();

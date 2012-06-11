@@ -1,7 +1,10 @@
-<%@page contentType="text/html" pageEncoding="ISO-8859-1"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN""http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
 <head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Calendario X - Agenda de Compromissos</title>
 <link rel='stylesheet' type='text/css' href='css/style.css' />
 <link rel='stylesheet' type='text/css' href='jquery-ui.css' />
 <link rel='stylesheet' type='text/css' href='jquery.weekcalendar.css' />
@@ -17,7 +20,7 @@
                 timeslotsPerHour: 4,
                 use24Hour: true,
                 timeFormat: 'G:i',
-                timeSeparator: " às ",
+                timeSeparator: " Ã s ",
                 buttonText: {today : "hoje", lastWeek : "<", nextWeek : ">"},
                 height: function($calendar){
                         return $(window).height() - $("h1").outerHeight();

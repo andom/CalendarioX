@@ -15,6 +15,9 @@ function QueryString(ID) {
         return "";
     }
 }
+function redirectCalendar(){
+	window.location="index.jsp";
+}
  $(document).ready(function(){
                 if (QueryString("id")!=""){
                     var url='AgendaServlet?id='+QueryString("id");
@@ -36,15 +39,88 @@ function QueryString(ID) {
                     $('#start').val(QueryString("inicio"));
                     $('#end').val(QueryString("fim"));
                 }
-                //bot�o para deletar
+                //botâo para deletar
                 if (QueryString("id")!=""){
                     $("#btExcluir").click(function() {
-                        var url='AgendaResponse?id='+QueryString("id")+'&acao=deletar';
-                        window.location=url;
+							var action=$('#formAgenda').attr('action')
+							action+= "?id="+QueryString("id")+'&acao=deletar';
+							$.post(action,function(data){
+								if(data['status']==0){
+									$('#message-green').show()						
+									$('#message-green .green-left').html(data['msg']+" <a href=\"index.jsp\">Clique aqui para voltar ao calendário!")
+									setTimeout('redirectCalendar()',3000)
+									return false;
+								}
+								else{
+									$('#message-red').show()						
+									$('#message-red .red-left').html(data['msg'])
+									return false;
+								}							
+							},"json");
+							return false;
                     });
                 }
                 else{
                     $("#btExcluir").hide();
                     
                 }
+				
+				$('#gravar').click(function(){
+						if($('#data').val()=="NaN/NaN/NaN"){
+							$('#message-red').show()						
+							$('#message-red .red-left').html('Data Inválida! Escolha uma data válida!')
+							$('#errorData').show()
+							return false;
+						}
+						else if($('#start').val()=="" || $('#start').val().toString().length<5){
+							$('#message-red').show()						
+							$('#message-red .red-left').html('Por favor digite um horário de início válido!')
+							$('#errorHoraInicio').show()
+							$('#errorData').hide()
+							return false;
+						}
+						else if($('#end').val()=="" || $('#end').val().toString().length<5){
+							$('#message-red').show()						
+							$('#message-red .red-left').html('Por favor digite um horário de fim válido!')
+							$('#errorHoraFim').show()
+							$('#errorData').hide()
+							$('#errorHoraInicio').hide()
+							return false;
+						}
+						else if($('#assunto').val()==""){
+							$('#message-red').show()						
+							$('#message-red .red-left').html('Por favor digite um assunto!')
+							$('#errorAssunto').show()
+							$('#errorHoraFim').hide()
+							$('#errorData').hide()
+							$('#errorHoraInicio').hide()
+							return false;
+						}
+						else{
+							$('#errorAssunto').hide()
+							$('#errorHoraFim').hide()
+							$('#errorData').hide()
+							$('#errorHoraInicio').hide()
+						
+							var action=$('#formAgenda').attr('action')
+							action+= "?"+$('#formAgenda').serialize();
+							$.post(action,function(data){
+						
+								if(data['status']==0){
+									$('#message-green').show()						
+									$('#message-green .green-left').html(data['msg']+" <a href=\"index.jsp\">Clique aqui para voltar ao calendário!")
+									setTimeout('redirectCalendar()',3000)
+									return false;
+								
+								}
+								else{
+									$('#message-red').show()						
+									$('#message-red .red-left').html(data['msg'])
+									return false;
+								}							
+							},"json");
+							return false;
+						
+						}
+				})
             })

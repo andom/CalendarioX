@@ -1,4 +1,4 @@
-<%@page contentType="text/html" pageEncoding="ISO-8859-1"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -235,12 +235,29 @@ $('#data').trigger('change');
 	<td>
 	<!--  start content-table-inner -->
 	<div id="content-table-inner">
-	
+		<div id="message-red" style="display:none;">
+			<table border="0" width="100%" cellpadding="0" cellspacing="0">
+				<tbody><tr>
+					<td class="red-left">Error. <a href="">Please try again.</a></td>
+					<td class="red-right"><a class="close-red"><img src="images/table/icon_close_red.gif" alt=""></a></td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+		<div id="message-green" style="display:none;">
+			<table border="0" width="100%" cellpadding="0" cellspacing="0">
+				<tbody><tr>
+					<td class="green-left">Product added sucessfully. <a href="">Add new one.</a></td>
+					<td class="green-right"><a class="close-green"><img src="images/table/icon_close_green.gif" alt=""></a></td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
 	<table border="0" width="100%" cellpadding="0" cellspacing="0">
 	<tr valign="top">
 	<td>
 	
-	<form action="AgendaResponse" method="post">
+	<form action="AgendaResponse" id="formAgenda" method="post">
 		<input type="hidden" name="ID" id="cod"/>
         <input type="hidden" name="acao" value="atualizar"/>
 	
@@ -267,27 +284,40 @@ $('#data').trigger('change');
 				
 				
 			</td>
-			<td>&nbsp;</td>
+			
+			<td>
+				<div id="errorData" style="display:none;">
+					<div class="error-left"></div>
+					<div class="error-inner">Este campo é obrigatório.</div>
+				</div>
+			</td>
 		</tr>
 		<tr>
-			<th valign="top">Hora In�cio:</th>
+			<th valign="top">Hora Início:</th>
 			<td><input type="text" class="inp-form" name="HoraInicio" id="start" /></td>
 			<td>
-			<!--<div class="error-left"></div>
-			<div class="error-inner">This field is required.</div>-->
+				<div id="errorHoraInicio" style="display:none;">
+					<div class="error-left"></div>
+					<div class="error-inner">Este campo é obrigatório.</div>
+				</div>
 			</td>
 		</tr>
 		<tr>
 			<th valign="top">Hora Fim:</th>
 			<td><input type="text" name="HoraFim" id="end" class="inp-form" /></td>
-			<td></td>
+			<td>
+				<div id="errorHoraFim" style="display:none;">
+					<div class="error-left"></div>
+					<div class="error-inner">Este campo é obrigatório.</div>
+				</div>
+			</td>
 		</tr>
 		<tr>
 		<th valign="top">Tipo:</th>
 		<td>	
 		<select name="Tipo" id="tipo" class="styledselect_form_1">
-			<option value="1">Visita t�cnica</option>
-              <option value="2">Visita de manuten��o</option>
+			<option value="1">Visita técnica</option>
+              <option value="2">Visita de manutenção</option>
               <option value="3">Visita de projeto</option>
 		</select>
 		</td>
@@ -296,11 +326,16 @@ $('#data').trigger('change');
 		<tr>
 			<th valign="top">Assunto:</th>
 			<td><input type="text" name="Assunto" id="assunto" class="inp-form" /></td>
-			<td></td>
+			<td>
+				<div id="errorAssunto" style="display:none;">
+					<div class="error-left"></div>
+					<div class="error-inner">Este campo é obrigatório.</div>
+				</div>
+			</td>
 		</tr>
 			
 	<tr>
-		<th valign="top">Descri��o:</th>
+		<th valign="top">Descrição:</th>
 		<td><textarea name="Observacao" id="obs"  cols="40" rows="4"rows="" cols="" class="form-textarea"></textarea></td>
 		<td></td>
 	</tr>
@@ -308,8 +343,8 @@ $('#data').trigger('change');
 		<th>&nbsp;</th>
 		<td valign="top">
 		
-			<input type="submit" value="Gravar" name="btGravar" onclick="obrigado();" class="form-submit"/>
-            <input type="button" value="Cancelar" name="btVoltar" onclick="window.location='index.jsp'" class="form-submit"/>
+			<input type="submit" value="Gravar" name="btGravar" id="gravar" class="form-submit"/>
+            <input type="button" value="Cancelar" name="btVoltar" id="voltar" onclick="window.location='index.jsp'" class="form-submit"/>
             <input type="button" value="Excluir" id="btExcluir" class="form-submit"/>
 							
 		</td>
